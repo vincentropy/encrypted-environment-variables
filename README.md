@@ -75,7 +75,7 @@ With the simple setup above, you can now encrypt and decrypt environment files f
 #### Encrypt an environment file
 
 ```bash
-XDG_CONFIG_HOME=$HOME/.config sops encrypt  .env > .env.enc
+XDG_CONFIG_HOME=$HOME/.config sops --config ~/.config/sops/config.yaml encrypt .env > .env.enc
 ```
 
 #### Decrypt an environment file
@@ -161,12 +161,12 @@ You're now ready to migrate existing environment files to the encrypted format.
 In a folder containing a `.env` file, run the following command to create an encrypted version:
 
 ```bash
-XDG_CONFIG_HOME=$HOME/.config sops encrypt  .env > .env.enc
+XDG_CONFIG_HOME=$HOME/.config sops --config ~/.config/sops/config.yaml encrypt .env > .env.enc
 ```
 
 you can test that the encrypted file works by running
 
-```bash
+```bash``
 eval "$(sopssetenv)" && echo $MY_SECRET_VARIABLE
 ```
 
